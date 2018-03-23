@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+const apiV1 = require('./routes/apiV1');
 
 var app = express();
 
@@ -23,13 +24,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+
+app.use('/public-ip/', index);
+app.use('/public-ip/api/v1', apiV1);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    res.status(404).json({error: true, message: `Route ${req.originalUrl} not found`})
+    //next(err);
 });
 
 // error handler

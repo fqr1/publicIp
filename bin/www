@@ -4,9 +4,16 @@
  * Module dependencies.
  */
 
+const MongoClient = require('mongodb').MongoClient;
+MongoClient.connect('mongodb://127.0.0.1/serverip').then(db => {
+    global.MongoClient = db.db('serverip');
 var app = require('../app');
 var debug = require('debug')('public-ip:server');
 var http = require('http');
+
+//var server;
+
+    //do something with db
 
 /**
  * Get port from environment and store in Express.
@@ -88,3 +95,4 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+});
