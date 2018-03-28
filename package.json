@@ -6,13 +6,18 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.15.5",
     "mongodb": "^3.0.4",
     "morgan": "~1.9.0",
+    "node-fetch": "^2.1.1",
     "pug": "2.0.0-beta11",
     "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1"
   }
 }
