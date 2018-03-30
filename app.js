@@ -25,8 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 
-app.use('/public-ip/', index);
-app.use('/public-ip/api/v1', apiV1);
+app.use('/publicip/', index);
+app.use('/publicip/api/v1', apiV1);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
